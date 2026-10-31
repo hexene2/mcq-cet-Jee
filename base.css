@@ -5,8 +5,11 @@
 
 :root {
     --bg: #F8F7F3;
-    --surface: #FFFFFF;
+    --surface: #dbdada;
     --surface-secondary: #F1F0EB;
+    --bgNav: #e7e7e7;
+    --bgSideBar: #e7e7e7;
+
 
     --text: #202122;
     --text-secondary: #54595D;
@@ -15,16 +18,12 @@
     --accent: #3366CC;
     --accent-hover: #254F9C;
 }
-
-a{
-    text-decoration: none;
-}
-
-
-.dark {
+body.dark {
     --bg: #17191D;
     --surface: #202329;
     --surface-secondary: #282C34;
+    --bgNav: #292929;
+    --bgSideBar: #313131;
 
     --text: #E6E6E6;
     --text-secondary: #A6ABB3;
@@ -33,6 +32,45 @@ a{
     --accent: #7AA2F7;
     --accent-hover: #A0B9FF;
 
+}
+
+
+.icon-sun {
+    fill: var(--text);
+}
+
+body .icon-sun {
+    display: inline-block;
+}
+body .icon-moon {
+    display: none;
+}
+
+/* In Dark Mode: Show the sun icon, hide the moon icon */
+body.dark .icon-sun {
+    display: none;
+}
+body.dark .icon-moon {
+    display: inline-block;
+}
+
+
+
+.material-symbols-outlined{
+    color: var(--text);
+}
+a{
+    text-decoration: none;
+    color: var(--text);
+}
+
+button{
+    border: none;
+    background-color: transparent;
+}
+
+span{
+    fill: var(--text);
 }
 
 body{
@@ -56,10 +94,17 @@ body{
 #nav{
     grid-area: nav;
     padding: 10px;
+    display: flex;
+    background: var(--bgNav);
+    border-bottom: 1px solid var(--accent);
 }
 
 #sidebar{
     grid-area: sidebar;
+    background: var(--bgSideBar);
+    border-right: 1px solid var(--accent);
+
+
 }
 
 #sidebar li a{
@@ -69,8 +114,6 @@ body{
 
 #settings{
     grid-area: settings;
-    background-color: red;
-
 }
 
 #footer{
@@ -78,6 +121,20 @@ body{
 
     grid-area: footer;
 }
+
+
+
+
+#themeToggleBTN{
+    padding: 1px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
 
 
 
@@ -91,8 +148,26 @@ body{
 @media screen and (max-width: 1000px) {
   body {
     grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+    "nav nav"
+    "sidebar main"
+    "sidebar footer";
   }
   #settings{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "nav"
+    "main"
+    "footer";
+    
+  }
+  #sidebar{
     display: none;
   }
 }
