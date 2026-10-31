@@ -6,21 +6,29 @@
     <title>mainpage</title>
 </head>
 
+
 <link rel="stylesheet" href="{{ url_for('static', filename='/base.css') }}">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=sunny" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dark_mode" />
 
 <body>
     <nav id="nav">
-        examgoal
+        <a href="/index.html"><h1>examgoal</h1></a>
+         
+        <button id="themeToggleBTN">
+            <span class="icon-sun material-symbols-outlined">
+                sunny
+            </span>
+
+            <span class="icon-moon material-symbols-outlined">
+                dark_mode
+            </span>
+        </button>
     </nav>
     <aside id="sidebar">
-        <h1>{{subject}} {{topic}} {{questionNumber}}</h1>
-        <ul>
-            <li><a href="subject">subject</a></li>
-            <li><a href="subject">subject</a></li>
-            <li><a href="subject">subject</a></li>
-            <li><a href="subject">subject</a></li>
-            <li><a href="subject">subject</a></li>
-            
+        <ul>    
+            <li><a href="matrices.html">matrices</a></li>
         </ul>
     </aside>
     <div class="settings" id="settings">
@@ -30,4 +38,5 @@
         footer
     </footer>
 </body>
+<script src="{{ url_for('static', filename='/base.js') }}"></script>
 </html>
